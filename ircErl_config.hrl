@@ -1,0 +1,1 @@
+%%%----FILE ircErl_config.hrl
