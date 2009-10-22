@@ -1,0 +1,23 @@
+IRC in Erlang:
+
+For the moment I'm still working on the general structure.
+
+* There will be a 'central manager' that will handle the messages coming in for
+  a particular channel/username and route it to the correct place.
+* Messages to the channel from the user will be spread out to all the connected
+  users to that channel and any server connections that may apply.
+* Messages to a user from an outside server will be sent directly to the user,
+  same with messages to a user from a local user.
+* The sending of these messages will be handled with the 'client manager' and
+  'server manager' modules.
+
+At the moment, no code is written, just a few empty files created and some vague
+idea formed, I will be sitting down and working out a better formulation of the
+structure soon and from there I'll be getting into the coding.
+
+Why do I have this in a repository at this early a stage? Because I'm bouncing
+all over the place and trying to keep it with me to work on it would just be too
+much trouble, this way I can get started on it and put in effort from multiple
+locations. Hopefully soon there will actually be something here to look at...
+
+Erik
