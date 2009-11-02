@@ -28,6 +28,7 @@
 -export([server_manager_start/0]).
 -include("ircErl_config.erl").
 -include("ircErl_records.erl").
+-include("ircErl_numeric_replies.hrl").
 
 
 server_manager_start() ->
@@ -41,9 +42,12 @@ servermanager(ServerList) ->
                 [58|_] == Message ->
                     %% 58 = :, catches those pesky reversed message formats.
                     ok; %% or at least it will once I write all that...
-                list:prefix("JOIN",Message) ->
+                list:prefix("SERVER",Message) ->
                     %% the start of the regular messages. I think...
-                    ok
+                    ok;
+                list:prefix("SQUIT",Message) ->
+                    %% the start of the regular messages. I think...
+                    ok;
             end,
             servermanager(ServerList);
         shutdown ->

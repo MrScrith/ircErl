@@ -24,3 +24,16 @@
 %% SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 %%%----FILE ircErl_config.hrl
+
+
+CRLF = 0x0D0A.
+
+SPACE = 0x20.
+
+PREFIX = 0x3B.
+
+SERVERVERSION = "0_01"
+
+DEBUGLEVEL = 9
+
+SERVERIDENTITY = "ircErl.trouserenthusiast.com"

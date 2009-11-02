@@ -28,8 +28,8 @@
 -export([start/0]).
 -include("ircErl_client_manager.erl").
 -include("ircErl_server_manager.erl").
--include("ircErl_config.erl").
--include("ircErl_records.erl").
+-include("ircErl_config.hrl").
+-include("ircErl_records.hrl").
 
 start() ->
     server_manager_start(),
@@ -37,7 +37,10 @@ start() ->
     register(central_manager,spawn(start([],[])).
     
 central() ->
-    receive 
+    receive
+        {version,From,By} ->
+             if By == clientmanager ->
+                clientmanager ! VersionMessage(From,By),
         #clientMessage ->
             clientmanager ! #clientMessage;
         #serverMessage ->
@@ -54,3 +57,13 @@ central() ->
     central().
 
 
+VersionMessage(From,By) ->
+    %%<version>.<debuglevel> <server> :<comments>
+    %% <version> is from config ServerVersion
+    %% <debuglevel> is from config DebugOn?? (not sure what is expected for this value)
+    %% <server> is current server identification
+    %% <comments> probably not used.
+    
+    
+    
+    

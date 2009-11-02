@@ -36,3 +36,6 @@
 
 %% Messages from the server manager with a new list of servers
 -record(updatedServer,{serverList}).
+
+%% Messages from a remote client (received from a server connection).
+-record(remoteClientMessage,{message,namee}).
